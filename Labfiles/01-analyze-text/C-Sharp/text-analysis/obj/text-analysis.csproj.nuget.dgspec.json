@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj": {}
+    "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj": {
+    "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj",
+        "projectUniqueName": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj",
         "projectName": "text-analysis",
-        "projectPath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj",
+        "projectPath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj",
         "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\obj\\",
+        "outputPath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",

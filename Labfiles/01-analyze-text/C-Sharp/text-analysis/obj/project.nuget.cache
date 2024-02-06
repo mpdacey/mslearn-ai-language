@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ol5Nb7JbREFnlI+XPSzl2/cxG1S+iPdtcBSAcAfvDAaE01MX3WnK4lcOydThWW87R23pQZpi7SjBo5JA6f6AZA==",
+  "dgSpecHash": "x/hOVpY//pukVN3hvxufB8OcEFaI+Kf0658Joif2bev9eVN0jDFV00lUd4S219itgnKyLtk5JFYBU3ZLcU2xdg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj",
+  "projectFilePath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\01-analyze-text\\C-Sharp\\text-analysis\\text-analysis.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Michael\\.nuget\\packages\\azure.ai.textanalytics\\5.3.0\\azure.ai.textanalytics.5.3.0.nupkg.sha512",
     "C:\\Users\\Michael\\.nuget\\packages\\azure.core\\1.33.0\\azure.core.1.33.0.nupkg.sha512",
