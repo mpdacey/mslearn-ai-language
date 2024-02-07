@@ -58,7 +58,15 @@ namespace text_analysis
                     }
 
                     // Get entities
-
+                    CategorizedEntityCollection entities = aiClient.RecognizeEntities(text);
+                    if (entities.Count > 0)
+                    {
+                        Console.WriteLine("\nEntities:");
+                        foreach (CategorizedEntity entity in entities)
+                        {
+                            Console.WriteLine($"\t{entity.Text} ({entity.Category})");
+                        }
+                    }
 
                     // Get linked entities
 
