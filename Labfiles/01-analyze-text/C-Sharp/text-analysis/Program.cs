@@ -43,7 +43,8 @@ namespace text_analysis
                     Console.WriteLine($"\nLanguage: {detectedLanguage.Name}");
 
                     // Get sentiment
-
+                    DocumentSentiment sentimentAnalysis = aiClient.AnalyzeSentiment(text);
+                    Console.WriteLine($"\nSentiment: {sentimentAnalysis.Sentiment}");
 
                     // Get key phrases
 
