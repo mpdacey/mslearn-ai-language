@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj": {}
+    "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj": {
+    "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj",
+        "projectUniqueName": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj",
         "projectName": "qna-app",
-        "projectPath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj",
+        "projectPath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj",
         "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\obj\\",
+        "outputPath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",

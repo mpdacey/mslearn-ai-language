@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ui3grH66cFCXNH6Bjq43QO8Cee7eZURocyTGjqj8QdwFFBoIB9IqsgiyAS0IjIVfKFgGUXgQkW1NoIsqmerlLQ==",
+  "dgSpecHash": "90Ca8w2T5igY318BEJRG55Lo2kNT4fuRfPzSD2y36RSVvqxKhkYOjqRi+sUySa067KldwL88oHvqBE8qg4FRDw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj",
+  "projectFilePath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\02-qna\\C-Sharp\\qna-app\\qna-app.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Michael\\.nuget\\packages\\azure.ai.language.questionanswering\\1.1.0\\azure.ai.language.questionanswering.1.1.0.nupkg.sha512",
     "C:\\Users\\Michael\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
