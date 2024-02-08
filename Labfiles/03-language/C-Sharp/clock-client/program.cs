@@ -11,6 +11,8 @@ using Azure.Core;
 using Azure.Core.Serialization;
 
 // Import namespaces
+using Azure;
+using Azure.AI.Language.Conversations;
 
 namespace clock_client
 {
@@ -19,6 +21,16 @@ namespace clock_client
 
         static async Task Main(string[] args)
         {
+            string GetCategoryValue(dynamic entities, string category, string defaultResult)
+            {
+                string result = defaultResult;
+                foreach (dynamic entity in entities)
+                    if(entity.Category == category)
+                        result = entity.Text;
+
+                return result;
+            }
+
             try
             {
                 // Get config settings from AppSettings
@@ -29,6 +41,9 @@ namespace clock_client
                 string predictionKey = configuration["AIServicesKey"];
 
                 // Create a client for the Language service model
+                Uri endpoint = new Uri(predictionEndpoint);
+                AzureKeyCredential credential = new AzureKeyCredential(predictionKey);
+                ConversationAnalysisClient client = new ConversationAnalysisClient(endpoint, credential);
                 
                 // Get user input (until they enter "quit")
                 string userText = "";
@@ -40,9 +55,59 @@ namespace clock_client
                     {
 
                         // Call the Language service model to get intent and entities
-                        
+                        const string projectName = "Clock";
+                        const string deploymentName = "production";
+                        object data = new {
+                            analysisInput = new {
+                                conversationItem = new {
+                                    text = userText,
+                                    id = "1",
+                                    participantId = "1"
+                                }
+                            },
+                            parameters = new {
+                                projectName,
+                                deploymentName,
+                                // Utf16CodeUnit is used for strings in .Net
+                                stringIndexType = "Utf16CodeUnit"
+                            },
+                            kind = "Conversation"
+                        };
+
+                        //Send request
+                        Response response = await client.AnalyzeConversationAsync(RequestContent.Create(data));
+                        dynamic conversationalTaskResult = response.Content.ToDynamicFromJson(JsonPropertyNames.CamelCase);
+                        dynamic conversationPrediction = conversationalTaskResult.Result.Prediction;
+
+                        //Present response
+                        var options = new JsonSerializerOptions { WriteIndented = true };
+                        Console.WriteLine(JsonSerializer.Serialize(conversationalTaskResult, options));
+                        Console.WriteLine("-------------------\n");
+                        Console.WriteLine(userText);
+                        string topIntent = (conversationPrediction.Intents[0].ConfidenceScore > 0.5) ? conversationPrediction.TopIntent : "";
+
                         // Apply the appropriate action
-                        
+                        switch (topIntent)
+                        {
+                            case "GetTime":
+                                var location = GetCategoryValue(conversationPrediction.Entities, "Location", "local");
+                                string timeResponse = GetTime(location);
+                                Console.WriteLine(timeResponse);
+                                break;
+                            case "GetDay":
+                                var date = GetCategoryValue(conversationPrediction.Entities, "Date", DateTime.Today.ToShortDateString());
+                                string dayResponse = GetDay(date);
+                                Console.WriteLine(dayResponse);
+                                break;
+                            case "GetDate":
+                                var day = GetCategoryValue(conversationPrediction.Entities, "Weekday", DateTime.Today.DayOfWeek.ToString());
+                                string dateResponse = GetDate(day);
+                                Console.WriteLine(dateResponse);
+                                break;
+                            default:
+                                Console.WriteLine("Try asking me for the time, the day, or the date.");
+                                break;
+                        }
                     }
 
                 }

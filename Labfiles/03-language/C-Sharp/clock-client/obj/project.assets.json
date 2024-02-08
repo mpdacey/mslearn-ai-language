@@ -2,10 +2,10 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "Azure.AI.Language.Conversations/1.0.0": {
+      "Azure.AI.Language.Conversations/1.1.0": {
         "type": "package",
         "dependencies": {
-          "Azure.Core": "1.24.0",
+          "Azure.Core": "1.32.0",
           "System.Text.Json": "4.7.2"
         },
         "compile": {
@@ -267,16 +267,16 @@
     }
   },
   "libraries": {
-    "Azure.AI.Language.Conversations/1.0.0": {
-      "sha512": "5jenIQCY5pBivAGMejTQ0wHREBLK6/IVQoVLV4GD9Zp5i9Pi4k9bS+Ahe9ZnK0NxFO6bf5RCGEzgz7Xi+m7Q4Q==",
+    "Azure.AI.Language.Conversations/1.1.0": {
+      "sha512": "ql+RzzG7eZKnmduCKReU8N+awgGT1GL0f/CW3in9VaXJw+4kpYvt4pBP0b1/egZqUHgACkKv3DVqA7wHYzMt3Q==",
       "type": "package",
-      "path": "azure.ai.language.conversations/1.0.0",
+      "path": "azure.ai.language.conversations/1.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.ai.language.conversations.1.0.0.nupkg.sha512",
+        "azure.ai.language.conversations.1.1.0.nupkg.sha512",
         "azure.ai.language.conversations.nuspec",
         "azureicon.png",
         "lib/netstandard2.0/Azure.AI.Language.Conversations.dll",
@@ -665,7 +665,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Azure.AI.Language.Conversations >= 1.0.0",
+      "Azure.AI.Language.Conversations >= 1.1.0",
       "Azure.Core >= 1.33.0",
       "Microsoft.Extensions.Configuration.Json >= 3.1.3",
       "Newtonsoft.Json >= 12.0.3"
@@ -677,11 +677,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj",
+      "projectUniqueName": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj",
       "projectName": "clock_client",
-      "projectPath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj",
+      "projectPath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj",
       "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\obj\\",
+      "outputPath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -712,7 +712,7 @@
         "dependencies": {
           "Azure.AI.Language.Conversations": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.1.0, )"
           },
           "Azure.Core": {
             "target": "Package",
