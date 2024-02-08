@@ -21,6 +21,16 @@ namespace clock_client
 
         static async Task Main(string[] args)
         {
+            string GetCategoryValue(dynamic entities, string category, string defaultResult)
+            {
+                string result = defaultResult;
+                foreach (dynamic entity in entities)
+                    if(entity.Category == category)
+                        result = entity.Text;
+
+                return result;
+            }
+
             try
             {
                 // Get config settings from AppSettings
@@ -74,10 +84,30 @@ namespace clock_client
                         Console.WriteLine(JsonSerializer.Serialize(conversationalTaskResult, options));
                         Console.WriteLine("-------------------\n");
                         Console.WriteLine(userText);
-                        var topIntent = (conversationPrediction.Intents[0].ConfidenceScore > 0.5) ? conversationPrediction.topIntent : "";
-                        
+                        string topIntent = (conversationPrediction.Intents[0].ConfidenceScore > 0.5) ? conversationPrediction.TopIntent : "";
+
                         // Apply the appropriate action
-                        
+                        switch (topIntent)
+                        {
+                            case "GetTime":
+                                var location = GetCategoryValue(conversationPrediction.Entities, "Location", "local");
+                                string timeResponse = GetTime(location);
+                                Console.WriteLine(timeResponse);
+                                break;
+                            case "GetDay":
+                                var date = GetCategoryValue(conversationPrediction.Entities, "Date", DateTime.Today.ToShortDateString());
+                                string dayResponse = GetDay(date);
+                                Console.WriteLine(dayResponse);
+                                break;
+                            case "GetDate":
+                                var day = GetCategoryValue(conversationPrediction.Entities, "Weekday", DateTime.Today.DayOfWeek.ToString());
+                                string dateResponse = GetDate(day);
+                                Console.WriteLine(dateResponse);
+                                break;
+                            default:
+                                Console.WriteLine("Try asking me for the time, the day, or the date.");
+                                break;
+                        }
                     }
 
                 }
