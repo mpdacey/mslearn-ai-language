@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj": {}
+    "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj": {
+    "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj",
+        "projectUniqueName": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj",
         "projectName": "clock_client",
-        "projectPath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj",
+        "projectPath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\clock_client.csproj",
         "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\obj\\",
+        "outputPath": "C:\\Users\\Michael\\Documents\\GitHub\\tutorials\\mslearn-ai-language\\Labfiles\\03-language\\C-Sharp\\clock-client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,7 +42,7 @@
           "dependencies": {
             "Azure.AI.Language.Conversations": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.1.0, )"
             },
             "Azure.Core": {
               "target": "Package",
