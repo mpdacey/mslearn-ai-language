@@ -11,6 +11,8 @@ using Azure.Core;
 using Azure.Core.Serialization;
 
 // Import namespaces
+using Azure;
+using Azure.AI.Language.Conversations;
 
 namespace clock_client
 {
@@ -29,6 +31,9 @@ namespace clock_client
                 string predictionKey = configuration["AIServicesKey"];
 
                 // Create a client for the Language service model
+                Uri endpoint = new Uri(predictionEndpoint);
+                AzureKeyCredential credential = new AzureKeyCredential(predictionKey);
+                ConversationAnalysisClient client = new ConversationAnalysisClient(endpoint, credential);
                 
                 // Get user input (until they enter "quit")
                 string userText = "";
@@ -40,6 +45,36 @@ namespace clock_client
                     {
 
                         // Call the Language service model to get intent and entities
+                        const string projectName = "Clock";
+                        const string deploymentName = "production";
+                        object data = new {
+                            analysisInput = new {
+                                conversationItem = new {
+                                    text = userText,
+                                    id = "1",
+                                    participantId = "1"
+                                }
+                            },
+                            parameters = new {
+                                projectName,
+                                deploymentName,
+                                // Utf16CodeUnit is used for strings in .Net
+                                stringIndexType = "Utf16CodeUnit"
+                            },
+                            kind = "Conversation"
+                        };
+
+                        //Send request
+                        Response response = await client.AnalyzeConversationAsync(RequestContent.Create(data));
+                        dynamic conversationalTaskResult = response.Content.ToDynamicFromJson(JsonPropertyNames.CamelCase);
+                        dynamic conversationPrediction = conversationalTaskResult.Result.Prediction;
+
+                        //Present response
+                        var options = new JsonSerializerOptions { WriteIndented = true };
+                        Console.WriteLine(JsonSerializer.Serialize(conversationalTaskResult, options));
+                        Console.WriteLine("-------------------\n");
+                        Console.WriteLine(userText);
+                        var topIntent = (conversationPrediction.Intents[0].ConfidenceScore > 0.5) ? conversationPrediction.topIntent : "";
                         
                         // Apply the appropriate action
                         
