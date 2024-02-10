@@ -6,8 +6,9 @@ using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 
 // import namespaces
-
-
+using Azure;
+using Azure.AI.Translation.Text;
+using System.Runtime.InteropServices;
 
 namespace translate_text
 {
@@ -27,20 +28,40 @@ namespace translate_text
                 string translatorRegion = configuration["TranslatorRegion"];
                 string translatorKey = configuration["TranslatorKey"];
 
-
                 // Create client using endpoint and key
-
-
+                AzureKeyCredential credential = new(translatorKey);
+                TextTranslationClient client = new(credential, translatorRegion);
 
                 // Choose target language
-
-
+                Response<GetLanguagesResult> languagesResponse = await client.GetLanguagesAsync(scope:"translation").ConfigureAwait(false);
+                GetLanguagesResult languages = languagesResponse.Value;
+                Console.WriteLine($"{languages.Translation.Count} languages available.");
+                Console.WriteLine($"(See https://learn.microsoft.com/azure/ai-services/translator/language-support#translation)");
+                Console.WriteLine("Enter a target language code for translation (ie, 'en'):");
+                string targetLanguage = "xx";
+                bool languageSupported = false;
+                while (!languageSupported)
+                {
+                    targetLanguage = Console.ReadLine();
+                    languageSupported = languages.Translation.ContainsKey(targetLanguage);
+                    if(!languageSupported)
+                        Console.WriteLine($"{targetLanguage} is not a supported language.");
+                }
 
                 // Translate text
-
-
-                
-
+                string inputText = "";
+                while (inputText.ToLower() != "quit")
+                {
+                    Console.WriteLine("Enter text to translate ('quit' to exit)");
+                    inputText = Console.ReadLine();
+                    if (inputText.ToLower() != "quit")
+                    {
+                        Response<IReadOnlyList<TranslatedTextItem>> translationResponse = await client.TranslateAsync(targetLanguage, inputText).ConfigureAwait(false);
+                        IReadOnlyList<TranslatedTextItem> translations = translationResponse.Value;
+                        string sourceLanguage = translations[0]?.DetectedLanguage?.Language;
+                        Console.WriteLine($"'{inputText}'\ntranslated from {sourceLanguage} to {translations[0]?.Translations[0].To} as \n'{translations[0]?.Translations[0].Text}'");
+                    }
+                }
             }
             catch (Exception ex)
             {
