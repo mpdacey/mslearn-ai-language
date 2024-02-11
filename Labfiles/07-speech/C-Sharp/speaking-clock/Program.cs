@@ -31,12 +31,14 @@ namespace speaking_clock
 
                 // Get spoken input
                 string command = "";
-                command = await TranscribeCommand();
-                if (command.ToLower()=="what time is it?")
-                {
-                    await TellTime();
-                }
 
+                while(command.ToLower() != "quit.")
+                {
+                    Console.WriteLine("Try asking 'what time is it?'. Say 'quit' to exit application.");
+                    command = await TranscribeCommand();
+                    if (command.ToLower()=="what time is it?")
+                        await TellTime();
+                }
             }
             catch (Exception ex)
             {
@@ -49,10 +51,27 @@ namespace speaking_clock
             string command = "";
             
             // Configure speech recognition
-
+            using AudioConfig audioConfig = AudioConfig.FromDefaultMicrophoneInput();
+            using SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
+            Console.WriteLine("Speak now...");
 
             // Process speech input
-
+            SpeechRecognitionResult speech = await speechRecognizer.RecognizeOnceAsync();
+            if(speech.Reason == ResultReason.RecognizedSpeech)
+            {
+                command = speech.Text;
+                Console.WriteLine(command);
+            }
+            else
+            {
+                Console.WriteLine(speech.Reason);
+                if(speech.Reason == ResultReason.Canceled)
+                {
+                    var cancellation = CancellationDetails.FromResult(speech);
+                    Console.WriteLine(cancellation.Reason);
+                    Console.WriteLine(cancellation.ErrorDetails);
+                }
+            }
 
             // Return the command
             return command;
