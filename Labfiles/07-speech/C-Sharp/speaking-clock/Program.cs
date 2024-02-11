@@ -3,7 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
 // Import namespaces
-
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+using System.Diagnostics;
 
 namespace speaking_clock
 {
@@ -21,7 +23,11 @@ namespace speaking_clock
                 string aiSvcRegion = configuration["SpeechRegion"];
 
                 // Configure speech service
+                speechConfig = SpeechConfig.FromSubscription(aiSvcKey, aiSvcRegion);
+                Console.WriteLine($"Ready to use speech service in {speechConfig.Region}.");
 
+                // Configure voice
+                speechConfig.SpeechSynthesisVoiceName = "en-US-AriaNeural";
 
                 // Get spoken input
                 string command = "";
